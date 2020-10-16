@@ -1,0 +1,6 @@
+export const SCREENS = {
+  HOME: "HOME",
+  LISTING: "LISTING",
+  SETTINGS: "SETTINGS",
+  PROVIDER: "PROVIDER",
+};
