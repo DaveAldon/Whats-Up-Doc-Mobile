@@ -7,6 +7,7 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import Home from "../screens/Home";
 import Listing from "../screens/Listing";
+import Provider from "../screens/Provider";
 import Settings from "../screens/Settings";
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
 
@@ -17,26 +18,19 @@ export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
   return (
-    <BottomTab.Navigator
-      initialRouteName="Provider Search"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
-    >
+    <BottomTab.Navigator initialRouteName="Provider Search" tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
         name="Provider Search"
         component={SearchStack}
         options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Settings"
         component={Settings}
         options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -47,17 +41,9 @@ function SearchStack(props: any) {
   const { navigation } = props;
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="HOME"
-        component={Home}
-        options={{ title: "Search" }}
-      />
-      <Stack.Screen
-        name="LISTING"
-        component={Listing}
-        options={{ title: "Providers" }}
-      />
-      <Stack.Screen name="PROVDER" component={Listing} options={{}} />
+      <Stack.Screen name="HOME" component={Home} options={{ title: "Search" }} />
+      <Stack.Screen name="LISTING" component={Listing} options={{}} />
+      <Stack.Screen name="PROVIDER" component={Provider} options={{}} />
     </Stack.Navigator>
   );
 }
@@ -75,11 +61,7 @@ const TabOneStack = createStackNavigator<TabOneParamList>();
 function TabOneNavigator() {
   return (
     <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: "Tab One Title" }}
-      />
+      <TabOneStack.Screen name="TabOneScreen" component={TabOneScreen} options={{ headerTitle: "Tab One Title" }} />
     </TabOneStack.Navigator>
   );
 }
@@ -89,11 +71,7 @@ const TabTwoStack = createStackNavigator<TabTwoParamList>();
 function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: "Tab Two Title" }}
-      />
+      <TabTwoStack.Screen name="TabTwoScreen" component={TabTwoScreen} options={{ headerTitle: "Tab Two Title" }} />
     </TabTwoStack.Navigator>
   );
 }

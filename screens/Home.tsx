@@ -6,6 +6,12 @@ import { useTheme } from "@react-navigation/native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import * as enums from "../constants/enums";
 import { AntDesign } from "@expo/vector-icons";
+import * as FHIR from "../constants/FHIR";
+
+interface IDisease {
+  name: string;
+  code: string;
+}
 
 export default function Home(props: any) {
   const { colors } = useTheme();
@@ -16,8 +22,15 @@ export default function Home(props: any) {
         registry is HL7 FHIR's sample database.
       </Text>
       <ScrollView style={{ width: "100%", padding: 10 }}>
-        {Diseases.DiseaseMapping.map((disease: any, index: number) => (
-          <TouchableOpacity key={index} onPress={() => props.navigation.navigate(enums.SCREENS.LISTING)}>
+        {Diseases.DiseaseMapping.map((disease: IDisease, index: number) => (
+          <TouchableOpacity
+            key={index}
+            onPress={async () => {
+              props.navigation.navigate(enums.SCREENS.LISTING, {
+                code: disease.code,
+              });
+            }}
+          >
             <View style={[{ backgroundColor: colors.border }, styles.card]}>
               <Text style={{ color: colors.text }}>{disease.name}</Text>
               <AntDesign name="arrowright" size={24} color={colors.text} />
