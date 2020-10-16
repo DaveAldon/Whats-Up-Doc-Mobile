@@ -28,6 +28,7 @@ export default function Home(props: any) {
             onPress={async () => {
               props.navigation.navigate(enums.SCREENS.LISTING, {
                 code: disease.code,
+                disease: disease.name,
               });
             }}
           >
