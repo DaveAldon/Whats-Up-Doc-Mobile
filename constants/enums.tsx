@@ -4,3 +4,7 @@ export const SCREENS = {
   SETTINGS: "SETTINGS",
   PROVIDER: "PROVIDER",
 };
+
+export const colors = {
+  transparant: "transparent",
+};

@@ -5,9 +5,12 @@ import { useQuery, QueryCache } from "react-query";
 import { Text, View } from "../components/Themed";
 import * as FHIR from "../constants/FHIR";
 import { useTheme } from "@react-navigation/native";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as enums from "../constants/enums";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, Fontisto } from "@expo/vector-icons";
+import Animated from "react-native-reanimated";
+import BottomSheet from "reanimated-bottom-sheet";
+import * as PractitionerCard from "../components/Practitioner";
 
 interface IProps {
   route: { params: any };
@@ -16,13 +19,22 @@ interface IProps {
   error: any;
 }
 
-const queryCache = new QueryCache();
+interface IPractitioner {
+  name?: string;
+  org?: string;
+  orgID?: string;
+  pID?: string;
+  providerRole?: string;
+  providerSpecialty?: string;
+}
 
 export default function Listing(props: IProps) {
   const { colors } = useTheme();
   const { code, disease } = props.route.params;
   const { navigation } = props;
   const { isLoading, error, data } = useQuery("providerSearch", () => FHIR.GetProviders(code));
+  const bottomSheetRef = useRef(null);
+  const [practitioner, setPractitioner] = useState<IPractitioner>({});
 
   useEffect(() => {
     navigation.setOptions({
@@ -30,28 +42,68 @@ export default function Listing(props: IProps) {
     });
   });
 
-  if (isLoading) return "Loading...";
+  const renderContent = () => (
+    <View
+      style={{
+        backgroundColor: "white",
+        padding: 16,
+        height: 450,
+      }}
+    >
+      <Text>{practitioner.name}</Text>
+    </View>
+  );
+
+  if (isLoading) return <Text>Loading...</Text>;
   return (
     <View style={styles.container}>
       <ScrollView style={{ width: "100%", padding: 10 }}>
         {data.entry.map((entries: any, index: number) => {
-          const name = entries?.resource?.practitioner?.display?.replace(/[0-9]/g, "");
-          if (name === undefined) return;
+          const tempPractitioner = {
+            name: entries?.resource?.practitioner?.display?.replace(/[0-9]/g, ""),
+            org: entries?.resource?.organization?.display || "No associated organization",
+            orgID: entries?.resource?.organization?.reference,
+            pID: entries?.resource?.practitioner?.reference || "",
+            providerRole: "",
+            providerSpecialty: "",
+          };
+          try {
+            tempPractitioner.providerRole = entries?.resource?.code[0]?.coding[0]?.code;
+          } catch {
+            tempPractitioner.providerRole = "No reported role";
+          }
+          try {
+            tempPractitioner.providerSpecialty = entries?.resource?.speciality[0]?.coding[0]?.display;
+          } catch {
+            tempPractitioner.providerSpecialty = "No reported specialty";
+          }
+
+          if (tempPractitioner.name === undefined) return;
+
           return (
             <TouchableOpacity
               key={index}
               onPress={async () => {
-                props.navigation.navigate(enums.SCREENS.HOME, {});
+                //props.navigation.navigate(enums.SCREENS.HOME, {});
+                setPractitioner(tempPractitioner);
+                bottomSheetRef.current.snapTo(0);
               }}
             >
               <View style={[{ backgroundColor: colors.border }, styles.card]}>
-                <Text>{name}</Text>
+                <View style={{ flexDirection: "row", alignItems: "center", backgroundColor: enums.colors.transparant }}>
+                  <Fontisto name="doctor" style={{ marginRight: 10 }} size={24} color={colors.text} />
+                  <View style={{ backgroundColor: enums.colors.transparant }}>
+                    <Text>{tempPractitioner.name}</Text>
+                    <Text style={{ fontSize: 11, fontWeight: "200" }}>{tempPractitioner.org}</Text>
+                  </View>
+                </View>
                 <AntDesign name="arrowright" size={24} color={colors.text} />
               </View>
             </TouchableOpacity>
           );
         })}
       </ScrollView>
+      <BottomSheet ref={bottomSheetRef} snapPoints={[400, 0]} initialSnap={1} borderRadius={10} renderContent={renderContent} />
     </View>
   );
 }

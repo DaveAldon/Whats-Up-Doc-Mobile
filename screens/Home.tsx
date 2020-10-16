@@ -6,7 +6,6 @@ import { useTheme } from "@react-navigation/native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import * as enums from "../constants/enums";
 import { AntDesign } from "@expo/vector-icons";
-import * as FHIR from "../constants/FHIR";
 
 interface IDisease {
   name: string;
