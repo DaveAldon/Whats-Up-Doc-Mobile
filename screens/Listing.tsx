@@ -1,17 +1,15 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import { useQuery, QueryCache } from "react-query";
+import { useQuery } from "react-query";
 import { Text, View } from "../components/Themed";
 import * as FHIR from "../constants/FHIR";
 import { useTheme } from "@react-navigation/native";
 import { useEffect, useRef, useState } from "react";
 import * as enums from "../constants/enums";
-import { AntDesign, Fontisto } from "@expo/vector-icons";
-import Animated from "react-native-reanimated";
+import { AntDesign, Fontisto, Ionicons } from "@expo/vector-icons";
 import BottomSheet from "reanimated-bottom-sheet";
-import * as PractitionerCard from "../components/Practitioner";
-
+import * as ProviderCard from "../components/Provider";
 interface IProps {
   route: { params: any };
   navigation: any;
@@ -32,33 +30,30 @@ export default function Listing(props: IProps) {
   const { colors } = useTheme();
   const { code, disease } = props.route.params;
   const { navigation } = props;
-  const { isLoading, error, data } = useQuery("providerSearch", () => FHIR.GetProviders(code));
-  const bottomSheetRef = useRef(null);
   const [practitioner, setPractitioner] = useState<IPractitioner>({});
+  const bottomSheetRef = useRef(null);
 
+  const { isLoading, data: LISTdata } = useQuery("providerSearch", () => FHIR.GetProviders(code));
+  const { isLoading: providerIsLoading, data, refetch } = useQuery("providerSpecific", () => FHIR.GetProviderSpecific(practitioner.pID), {
+    enabled: false,
+  });
   useEffect(() => {
     navigation.setOptions({
       headerTitle: disease || "Search Results",
     });
   });
 
-  const renderContent = () => (
-    <View
-      style={{
-        backgroundColor: "white",
-        padding: 16,
-        height: 450,
-      }}
-    >
-      <Text>{practitioner.name}</Text>
-    </View>
-  );
+  useEffect(() => {
+    if (practitioner.pID) {
+      refetch();
+    }
+  }, [practitioner.pID]);
 
   if (isLoading) return <Text>Loading...</Text>;
   return (
     <View style={styles.container}>
       <ScrollView style={{ width: "100%", padding: 10 }}>
-        {data.entry.map((entries: any, index: number) => {
+        {LISTdata.entry.map((entries: any, index: number) => {
           const tempPractitioner = {
             name: entries?.resource?.practitioner?.display?.replace(/[0-9]/g, ""),
             org: entries?.resource?.organization?.display || "No associated organization",
@@ -84,7 +79,6 @@ export default function Listing(props: IProps) {
             <TouchableOpacity
               key={index}
               onPress={async () => {
-                //props.navigation.navigate(enums.SCREENS.HOME, {});
                 setPractitioner(tempPractitioner);
                 bottomSheetRef.current.snapTo(0);
               }}
@@ -97,18 +91,29 @@ export default function Listing(props: IProps) {
                     <Text style={{ fontSize: 11, fontWeight: "200" }}>{tempPractitioner.org}</Text>
                   </View>
                 </View>
-                <AntDesign name="arrowright" size={24} color={colors.text} />
+                <Ionicons name="ios-medical" size={24} color={colors.notification} />
               </View>
             </TouchableOpacity>
           );
         })}
       </ScrollView>
-      <BottomSheet ref={bottomSheetRef} snapPoints={[400, 0]} initialSnap={1} borderRadius={10} renderContent={renderContent} />
+      <BottomSheet
+        ref={bottomSheetRef}
+        snapPoints={[500, 0]}
+        initialSnap={1}
+        borderRadius={0}
+        renderHeader={() => ProviderCard.renderHeader(colors)}
+        renderContent={() => ProviderCard.renderInner(colors, practitioner, data)}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  bottomSheet: {
+    height: 600,
+    padding: 20,
+  },
   card: {
     height: 50,
     marginBottom: 10,

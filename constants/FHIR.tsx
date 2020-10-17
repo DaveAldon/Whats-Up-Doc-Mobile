@@ -15,3 +15,15 @@ export const GetProviders = async (code: string) => {
   });
   return response.json();
 };
+
+export const GetProviderSpecific = async (providerCode: string) => {
+  const response = await fetch(`${PATHS.FHIRBASE}${providerCode}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+  });
+  return response.json();
+};
