@@ -15,7 +15,7 @@ export const renderInner = (colors: any, practitioner: IPractitioner, providerDa
   const providerSpecific = {
     providerNPI: providerData?.identifier[0]?.value,
     phone: providerData?.telecom[1]?.value || "No phone number",
-    email: providerData?.telecom[0]?.value,
+    email: providerData?.telecom[0]?.value || "No email",
   };
   return (
     <View style={[styles.panel, { backgroundColor: colors.border }]}>

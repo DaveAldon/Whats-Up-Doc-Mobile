@@ -33,7 +33,7 @@ export default function Listing(props: IProps) {
   const [practitioner, setPractitioner] = useState<IPractitioner>({});
   const bottomSheetRef = useRef(null);
 
-  const { isLoading, data: LISTdata } = useQuery("providerSearch", () => FHIR.GetProviders(code));
+  const { isLoading, error, data: LISTdata } = useQuery("providerSearch", () => FHIR.GetProviders(code));
   const { isLoading: providerIsLoading, data, refetch } = useQuery("providerSpecific", () => FHIR.GetProviderSpecific(practitioner.pID), {
     enabled: false,
   });
@@ -50,10 +50,11 @@ export default function Listing(props: IProps) {
   }, [practitioner.pID]);
 
   if (isLoading) return <Text>Loading...</Text>;
+  if (error) return <Text>Error</Text>;
   return (
     <View style={styles.container}>
       <ScrollView style={{ width: "100%", padding: 10 }}>
-        {LISTdata.entry.map((entries: any, index: number) => {
+        {LISTdata?.entry?.map((entries: any, index: number) => {
           const tempPractitioner = {
             name: entries?.resource?.practitioner?.display?.replace(/[0-9]/g, ""),
             org: entries?.resource?.organization?.display || "No associated organization",

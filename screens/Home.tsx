@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import * as Diseases from "../constants/Diseases";
 import { Text, View } from "../components/Themed";
 import { useTheme } from "@react-navigation/native";

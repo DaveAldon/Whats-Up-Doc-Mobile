@@ -38,7 +38,8 @@
     "react-navigation": "^4.4.2",
     "react-query": "^2.23.1",
     "reanimated-bottom-sheet": "^1.0.0-alpha.22",
-    "expo-blur": "~8.2.0"
+    "expo-blur": "~8.2.0",
+    "expo-secure-store": "~9.2.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

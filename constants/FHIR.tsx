@@ -1,5 +1,8 @@
+import * as SecureStore from "expo-secure-store";
+
 export const PATHS = {
-  FHIRBASE: "https://hapi.fhir.org/baseR4/",
+  FHIRBASE_DEFAULT: "https://hapi.fhir.org/baseR4/",
+  FHIRBASE: "",
   ProviderQuery: "&_include=PractitionerRole:organization&_include=PractitionerRole:location",
   PractitionerRoleResource: "PractitionerRole?specialty=",
 };
