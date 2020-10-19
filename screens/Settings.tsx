@@ -4,36 +4,39 @@ import * as FHIR from "../constants/FHIR";
 import { Text, View } from "../components/Themed";
 import { useTheme } from "@react-navigation/native";
 import { useState } from "react";
+import * as Device from "expo-device";
 
 export default function Settings() {
   const { colors } = useTheme();
   const [url, setUrl] = useState(FHIR.PATHS.FHIRBASE);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>FHIR Endpoint</Text>
-      <TextInput
-        style={[{ backgroundColor: colors.card, color: colors.text }, styles.inputBox]}
-        value={url}
-        onChangeText={(text: string) => {
-          setUrl(text);
-        }}
-      ></TextInput>
-      <TouchableOpacity style={{ width: "90%" }} onPress={() => (FHIR.PATHS.FHIRBASE = url)}>
-        <View style={[{ backgroundColor: colors.primary }, styles.panelButton]}>
-          <Text style={styles.panelButtonTitle}>Save</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={{ width: "90%" }}
-        onPress={() => {
-          FHIR.PATHS.FHIRBASE = FHIR.PATHS.FHIRBASE_DEFAULT;
-          setUrl(FHIR.PATHS.FHIRBASE_DEFAULT);
-        }}
-      >
-        <View style={[{ backgroundColor: colors.primary }, styles.panelButton]}>
-          <Text style={styles.panelButtonTitle}>Reset to Default</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={{ width: Device.modelName === "iPad" ? "50%" : "100%", justifyContent: "center", alignItems: "center" }}>
+        <Text style={styles.title}>FHIR Endpoint</Text>
+        <TextInput
+          style={[{ backgroundColor: colors.card, color: colors.text }, styles.inputBox]}
+          value={url}
+          onChangeText={(text: string) => {
+            setUrl(text);
+          }}
+        ></TextInput>
+        <TouchableOpacity style={{ width: "90%" }} onPress={() => (FHIR.PATHS.FHIRBASE = url)}>
+          <View style={[{ backgroundColor: colors.primary }, styles.panelButton]}>
+            <Text style={styles.panelButtonTitle}>Save</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{ width: "90%" }}
+          onPress={() => {
+            FHIR.PATHS.FHIRBASE = FHIR.PATHS.FHIRBASE_DEFAULT;
+            setUrl(FHIR.PATHS.FHIRBASE_DEFAULT);
+          }}
+        >
+          <View style={[{ backgroundColor: colors.primary }, styles.panelButton]}>
+            <Text style={styles.panelButtonTitle}>Reset to Default</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

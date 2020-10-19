@@ -39,7 +39,8 @@
     "react-query": "^2.23.1",
     "reanimated-bottom-sheet": "^1.0.0-alpha.22",
     "expo-blur": "~8.2.0",
-    "expo-secure-store": "~9.2.0"
+    "expo-secure-store": "~9.2.0",
+    "expo-device": "~2.3.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

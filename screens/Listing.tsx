@@ -10,6 +10,8 @@ import * as enums from "../constants/enums";
 import { Fontisto, Ionicons } from "@expo/vector-icons";
 import BottomSheet from "reanimated-bottom-sheet";
 import * as ProviderCard from "../components/Provider";
+import * as Device from "expo-device";
+
 interface IProps {
   route: { params: any };
   navigation: any;
@@ -53,7 +55,7 @@ export default function Listing(props: IProps) {
   if (error) return <Text>Error</Text>;
   return (
     <View style={styles.container}>
-      <ScrollView style={{ width: "100%", padding: 10 }}>
+      <ScrollView style={{ width: Device.modelName === "iPad" ? "50%" : "100%", padding: 10 }}>
         {LISTdata?.entry?.map((entries: any, index: number) => {
           const tempPractitioner = {
             name: entries?.resource?.practitioner?.display?.replace(/[0-9]/g, ""),
@@ -100,7 +102,7 @@ export default function Listing(props: IProps) {
       </ScrollView>
       <BottomSheet
         ref={bottomSheetRef}
-        snapPoints={[500, 0]}
+        snapPoints={[Device.modelName === "iPad" ? 700 : 500, 0]}
         initialSnap={1}
         borderRadius={0}
         renderHeader={() => ProviderCard.renderHeader(colors)}

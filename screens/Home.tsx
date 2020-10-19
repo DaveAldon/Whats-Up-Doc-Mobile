@@ -7,6 +7,7 @@ import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import * as enums from "../constants/enums";
 import { AntDesign } from "@expo/vector-icons";
 import { useEffect } from "react";
+import * as Device from "expo-device";
 
 interface IDisease {
   name: string;
@@ -56,7 +57,7 @@ export default function Home(props: any) {
         Tap on a disease to search for providers that specialize in that area, according to the provider registry you can provide in the Settings. The
         default registry is HL7 FHIR's sample database.
       </Text>
-      <ScrollView style={{ width: "100%", padding: 10 }}>
+      <ScrollView style={{ width: Device.modelName === "iPad" ? "50%" : "100%", padding: 10 }}>
         {Diseases.DiseaseMapping.map((disease: IDisease, index: number) => (
           <TouchableOpacity
             key={index}
