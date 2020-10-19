@@ -24,7 +24,7 @@
       "bundleIdentifier": "com.davealdon.whatsupdoc"
     },
     "android": {
-      "package": "com.spotinc.drivermobilebetatester",
+      "package": "com.davealdon.whatsupdoc",
       "versionCode": 1
     },
     "web": {
