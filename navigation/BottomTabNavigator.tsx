@@ -2,7 +2,6 @@ import { Feather, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
-
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import Home from "../screens/Home";
@@ -40,7 +39,7 @@ function SearchStack(props: any) {
   const { navigation } = props;
   return (
     <Stack.Navigator>
-      <Stack.Screen name="HOME" component={Home} options={{ title: "Search" }} />
+      <Stack.Screen name="HOME" component={Home} options={{ title: "What's Up Doc" }} />
       <Stack.Screen name="LISTING" component={Listing} options={{}} />
     </Stack.Navigator>
   );

@@ -6,5 +6,5 @@ export const SCREENS = {
 };
 
 export const colors = {
-  transparant: "transparent",
+  transparent: "transparent",
 };

@@ -1,24 +1,60 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image } from "react-native";
 import * as Diseases from "../constants/Diseases";
 import { Text, View } from "../components/Themed";
 import { useTheme } from "@react-navigation/native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import * as enums from "../constants/enums";
 import { AntDesign } from "@expo/vector-icons";
+import { useEffect } from "react";
 
 interface IDisease {
   name: string;
   code: string;
 }
 
+const navImg = require("../assets/images/icon.png");
+
 export default function Home(props: any) {
   const { colors } = useTheme();
+  const { navigation } = props;
+
+  // Set a custom header
+  useEffect(() => {
+    navigation.setOptions({
+      headerTitle: () => (
+        <View
+          style={{
+            flexDirection: "row",
+            width: "100%",
+            backgroundColor: enums.colors.transparent,
+            justifyContent: "center",
+            alignItems: "center",
+            paddingBottom: 10,
+          }}
+        >
+          <View
+            style={{ flexDirection: "row", justifyContent: "center", width: 40, backgroundColor: enums.colors.transparent, height: 40, margin: 5 }}
+          >
+            <Image source={navImg} style={{ height: 40, width: 40, resizeMode: "cover", borderRadius: 10 }} />
+          </View>
+          <View style={{ backgroundColor: enums.colors.transparent, flexDirection: "row", justifyContent: "center", margin: 5 }}>
+            <Text style={{ fontSize: 18, fontWeight: "500", color: colors.text }}>What's Up Doc</Text>
+          </View>
+        </View>
+      ),
+      headerBackTitle: " ",
+      headerStyle: {
+        backgroundColor: colors.background,
+      },
+    });
+  });
+
   return (
     <View style={styles.container}>
       <Text style={{ padding: 10 }}>
-        Tap on a disease to see what providers specialize in it, according to the provider registry you can provide in the Settings. The default
-        registry is HL7 FHIR's sample database.
+        Tap on a disease to search for providers that specialize in that area, according to the provider registry you can provide in the Settings. The
+        default registry is HL7 FHIR's sample database.
       </Text>
       <ScrollView style={{ width: "100%", padding: 10 }}>
         {Diseases.DiseaseMapping.map((disease: IDisease, index: number) => (

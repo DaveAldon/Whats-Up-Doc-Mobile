@@ -7,7 +7,7 @@ import * as FHIR from "../constants/FHIR";
 import { useTheme } from "@react-navigation/native";
 import { useEffect, useRef, useState } from "react";
 import * as enums from "../constants/enums";
-import { AntDesign, Fontisto, Ionicons } from "@expo/vector-icons";
+import { Fontisto, Ionicons } from "@expo/vector-icons";
 import BottomSheet from "reanimated-bottom-sheet";
 import * as ProviderCard from "../components/Provider";
 interface IProps {
@@ -85,9 +85,9 @@ export default function Listing(props: IProps) {
               }}
             >
               <View style={[{ backgroundColor: colors.border }, styles.card]}>
-                <View style={{ flexDirection: "row", alignItems: "center", backgroundColor: enums.colors.transparant }}>
+                <View style={{ flexDirection: "row", alignItems: "center", backgroundColor: enums.colors.transparent }}>
                   <Fontisto name="doctor" style={{ marginRight: 10 }} size={24} color={colors.text} />
-                  <View style={{ backgroundColor: enums.colors.transparant }}>
+                  <View style={{ backgroundColor: enums.colors.transparent }}>
                     <Text>{tempPractitioner.name}</Text>
                     <Text style={{ fontSize: 11, fontWeight: "200" }}>{tempPractitioner.org}</Text>
                   </View>
