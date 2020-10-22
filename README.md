@@ -6,10 +6,12 @@ A React Native mobile app that lets you search for providers in your juristictio
 
 ### Screenshots
 
+<p float="left">
 <img src="https://lh3.googleusercontent.com/2fnQyXgGvRZzscD_6CaHRLoXQPGxPBYgRPXT9eO69VrVALq2CWJtwYEb88KF1MjEtKN0=w720-h310-rw">
 <img src="https://lh3.googleusercontent.com/M9pPo4qLsqTL9sXWcaqN1JHgD84lOjcj42w1kIERS7uQ4V07tTMsDx4r__6SyNt4jJ8=w720-h310-rw">
 <img src="https://lh3.googleusercontent.com/cXm9C-o-GQwHtSW1_iyA5rGMddDzOfoR__Rg0SZxxTGPwVkfOPNjpzxro4qKriykRg=w720-h310-rw">
 <img src="https://lh3.googleusercontent.com/2ClVgM2eFw9phavJw-l1jhtwLDxieGJM49VB0FElQfV9swvzT-fYZ-aClmkMriLsisoi=w720-h310-rw">
+</p>
 
 ### Supports
 
