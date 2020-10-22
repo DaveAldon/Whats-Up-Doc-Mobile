@@ -1,6 +1,15 @@
 # What's Up Doc
 
+<a href="https://play.google.com/store/apps/details?id=com.davealdon.whatsupdoc"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="300"></a>
+
 A React Native mobile app that lets you search for providers in your juristiction based on a disease specailty. Requires a FHIR provider registry endpoint, otherwise you can use the included HL7 FHIR demo database.
+
+### Screenshots
+
+<img src="https://lh3.googleusercontent.com/2fnQyXgGvRZzscD_6CaHRLoXQPGxPBYgRPXT9eO69VrVALq2CWJtwYEb88KF1MjEtKN0=w720-h310-rw">
+<img src="https://lh3.googleusercontent.com/M9pPo4qLsqTL9sXWcaqN1JHgD84lOjcj42w1kIERS7uQ4V07tTMsDx4r__6SyNt4jJ8=w720-h310-rw">
+<img src="https://lh3.googleusercontent.com/cXm9C-o-GQwHtSW1_iyA5rGMddDzOfoR__Rg0SZxxTGPwVkfOPNjpzxro4qKriykRg=w720-h310-rw">
+<img src="https://lh3.googleusercontent.com/2ClVgM2eFw9phavJw-l1jhtwLDxieGJM49VB0FElQfV9swvzT-fYZ-aClmkMriLsisoi=w720-h310-rw">
 
 ### Supports
 
