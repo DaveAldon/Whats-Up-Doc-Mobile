@@ -4,7 +4,7 @@
 <a href="https://play.google.com/store/apps/details?id=com.davealdon.whatsupdoc"><img alt="Get it on Google Play" src="https://lh3.googleusercontent.com/cjsqrWQKJQp9RFO7-hJ9AfpKzbUb_Y84vXfjlP0iRHBvladwAfXih984olktDhPnFqyZ0nu9A5jvFwOEQPXzv7hr3ce3QVsLN8kQ2Ao=s0" height="50"></a>
 <a href="https://apps.apple.com/us/app/whats-up-doc/id1519077039"><img alt="Download on the App Store" src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred_2x.png" height="50"></a></p>
 
-A React Native mobile app that lets you search for providers in your juristiction based on a disease specailty. Requires a FHIR provider registry endpoint, otherwise you can use the included HL7 FHIR demo database.
+A React Native mobile app that lets you search for providers in your juristiction based on a disease specialty. Requires a FHIR provider registry endpoint, otherwise you can use the included HL7 FHIR demo database.
 
 ### Screenshots
 
@@ -34,3 +34,4 @@ A React Native mobile app that lets you search for providers in your juristictio
 
 - This was originally created as part of the June 2020 HL7 FHIR DevDays Microsoft Hackathon. I built the original app using Xamarin, and after the hackathon I rewrote it using React Native. Ask me why I switched platforms! :smile:
 - Slides from the original hackathon presentation available [here](https://docs.google.com/presentation/d/1X6qeCuRigvTkzUoinb5pg-8AWY9c05240loeVSkdVFo/edit?usp=sharing)
+- Original Xamarin repo is [here](https://github.com/DaveAldon/Whats-Up-Doc)
