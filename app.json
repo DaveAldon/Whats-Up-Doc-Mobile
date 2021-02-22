@@ -2,7 +2,7 @@
   "expo": {
     "name": "Whats Up Doc",
     "slug": "WhatsUpDoc",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -24,8 +24,9 @@
       "bundleIdentifier": "com.davealdon.whatsupdoc"
     },
     "android": {
+      "permissions": [],
       "package": "com.davealdon.whatsupdoc",
-      "versionCode": 1
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
