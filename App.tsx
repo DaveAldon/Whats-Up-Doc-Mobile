@@ -11,7 +11,8 @@ import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 
 const queryClient = new QueryClient();
 
-export default function App() {
+export default function App(props: any) {
+  const { UnitTestLoading } = props;
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function App() {
     })();
   }, []);
 
-  if (!isLoadingComplete) {
+  if (!isLoadingComplete && !UnitTestLoading) {
     return null;
   } else {
     return (
