@@ -1,5 +1,7 @@
 # What's Up Doc
 
+[![supports iOS](https://img.shields.io/badge/iOS-4630EB.svg?style=for-the-badge&logo=APPLE&labelColor=000&logoColor=fff)](https://github.com/DaveAldon/Whats-Up-Doc) [![supports Android](https://img.shields.io/badge/Android-4630EB.svg?style=for-the-badge&logo=ANDROID&labelColor=000&logoColor=fff)](https://github.com/DaveAldon/Whats-Up-Doc) <image src="https://img.shields.io/badge/Coverage-54.23%25-yellowgreen">
+
 <p float="left">
 <a href="https://play.google.com/store/apps/details?id=com.davealdon.whatsupdoc"><img alt="Get it on Google Play" src="https://lh3.googleusercontent.com/cjsqrWQKJQp9RFO7-hJ9AfpKzbUb_Y84vXfjlP0iRHBvladwAfXih984olktDhPnFqyZ0nu9A5jvFwOEQPXzv7hr3ce3QVsLN8kQ2Ao=s0" height="50"></a>
 <a href="https://apps.apple.com/us/app/whats-up-doc/id1519077039"><img alt="Download on the App Store" src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred_2x.png" height="50"></a></p>
@@ -14,10 +16,6 @@ A React Native mobile app that lets you search for providers in your juristictio
 <img src="https://lh3.googleusercontent.com/cXm9C-o-GQwHtSW1_iyA5rGMddDzOfoR__Rg0SZxxTGPwVkfOPNjpzxro4qKriykRg=w720-h310-rw">
 <img src="https://lh3.googleusercontent.com/2ClVgM2eFw9phavJw-l1jhtwLDxieGJM49VB0FElQfV9swvzT-fYZ-aClmkMriLsisoi=w720-h310-rw">
 </p>
-
-### Supports
-
-[![supports iOS](https://img.shields.io/badge/iOS-4630EB.svg?style=for-the-badge&logo=APPLE&labelColor=000&logoColor=fff)](https://github.com/DaveAldon/Whats-Up-Doc) [![supports Android](https://img.shields.io/badge/Android-4630EB.svg?style=for-the-badge&logo=ANDROID&labelColor=000&logoColor=fff)](https://github.com/DaveAldon/Whats-Up-Doc)
 
 ## Architecture
 
