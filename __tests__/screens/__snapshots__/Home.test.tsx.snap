@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+      },
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+        },
+        Object {
+          "padding": 10,
+        },
+      ]
+    }
+  >
+    Tap on a disease to search for providers that specialize in that area, according to the provider registry you can provide in the Settings. The default registry is HL7 FHIR's sample database.
+  </Text>
+  <RCTScrollView
+    style={
+      Object {
+        "padding": 10,
+        "width": "100%",
+      }
+    }
+  >
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgb(216, 216, 216)",
+                },
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 10,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "space-between",
+                  "marginBottom": 10,
+                  "paddingHorizontal": 20,
+                },
+              ],
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                },
+                Object {
+                  "color": "rgb(28, 28, 30)",
+                },
+              ]
+            }
+          >
+            Coronary Artery Disease
+          </Text>
+          <Text />
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgb(216, 216, 216)",
+                },
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 10,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "space-between",
+                  "marginBottom": 10,
+                  "paddingHorizontal": 20,
+                },
+              ],
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                },
+                Object {
+                  "color": "rgb(28, 28, 30)",
+                },
+              ]
+            }
+          >
+            Hypertension
+          </Text>
+          <Text />
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgb(216, 216, 216)",
+                },
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 10,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "space-between",
+                  "marginBottom": 10,
+                  "paddingHorizontal": 20,
+                },
+              ],
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                },
+                Object {
+                  "color": "rgb(28, 28, 30)",
+                },
+              ]
+            }
+          >
+            Lyme Disease
+          </Text>
+          <Text />
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgb(216, 216, 216)",
+                },
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 10,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "space-between",
+                  "marginBottom": 10,
+                  "paddingHorizontal": 20,
+                },
+              ],
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                },
+                Object {
+                  "color": "rgb(28, 28, 30)",
+                },
+              ]
+            }
+          >
+            Measles
+          </Text>
+          <Text />
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgb(216, 216, 216)",
+                },
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 10,
+                  "flexDirection": "row",
+                  "height": 50,
+                  "justifyContent": "space-between",
+                  "marginBottom": 10,
+                  "paddingHorizontal": 20,
+                },
+              ],
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                },
+                Object {
+                  "color": "rgb(28, 28, 30)",
+                },
+              ]
+            }
+          >
+            Bronchitis
+          </Text>
+          <Text />
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

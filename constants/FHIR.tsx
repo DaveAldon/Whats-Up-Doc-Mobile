@@ -1,5 +1,3 @@
-import * as SecureStore from "expo-secure-store";
-
 export const PATHS = {
   FHIRBASE_DEFAULT: "https://hapi.fhir.org/baseR4/",
   FHIRBASE: "",

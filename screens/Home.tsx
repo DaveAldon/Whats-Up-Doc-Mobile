@@ -1,22 +1,21 @@
 import * as React from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
 import * as Diseases from "../constants/Diseases";
 import { Text, View } from "../components/Themed";
 import { useTheme } from "@react-navigation/native";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import * as enums from "../constants/enums";
 import { AntDesign } from "@expo/vector-icons";
 import { useEffect } from "react";
 import * as Device from "expo-device";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 interface IDisease {
   name: string;
   code: string;
 }
 
-const navImg = require("../assets/images/icon.png");
-
 export default function Home(props: any) {
+  const navImg = require("../assets/images/icon.png");
   const { colors } = useTheme();
   const { navigation } = props;
 
@@ -62,7 +61,7 @@ export default function Home(props: any) {
           <TouchableOpacity
             key={index}
             onPress={async () => {
-              props.navigation.navigate(enums.SCREENS.LISTING, {
+              navigation.navigate(enums.SCREENS.LISTING, {
                 code: disease.code,
                 disease: disease.name,
               });
@@ -70,7 +69,9 @@ export default function Home(props: any) {
           >
             <View style={[{ backgroundColor: colors.border }, styles.card]}>
               <Text style={{ color: colors.text }}>{disease.name}</Text>
-              <AntDesign name="arrowright" size={24} color={colors.text} />
+              <ErrorBoundary>
+                <AntDesign name="arrowright" size={24} color={colors.text} />
+              </ErrorBoundary>
             </View>
           </TouchableOpacity>
         ))}

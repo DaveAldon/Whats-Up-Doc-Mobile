@@ -13,7 +13,14 @@ interface IPractitioner {
   providerSpecialty?: string;
 }
 
-export const renderInner = (colors: any, practitioner: IPractitioner, providerData: any) => {
+interface IProviderProp {
+  colors: any;
+  practitioner: IPractitioner;
+  providerData: any;
+}
+
+export const RenderInner = (props: IProviderProp) => {
+  const { colors, practitioner, providerData } = props;
   const providerSpecific = {
     providerNPI: providerData?.identifier[0]?.value,
     phone: providerData?.telecom[1]?.value || "No phone number",
@@ -46,7 +53,7 @@ export const renderInner = (colors: any, practitioner: IPractitioner, providerDa
   );
 };
 
-export const renderHeader = (colors: any) => (
+export const RenderHeader = (colors: any) => (
   <View style={[{ backgroundColor: colors.border }, styles.header]}>
     <View style={[{ backgroundColor: colors.border }, styles.panelHeader]}>
       <View style={[{ backgroundColor: colors.text }, styles.panelHandle]} />

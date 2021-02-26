@@ -105,8 +105,11 @@ export default function Listing(props: IProps) {
         snapPoints={[Device.modelName === "iPad" ? 700 : 500, 0]}
         initialSnap={1}
         borderRadius={0}
-        renderHeader={() => ProviderCard.renderHeader(colors)}
-        renderContent={() => ProviderCard.renderInner(colors, practitioner, data)}
+        renderHeader={() => ProviderCard.RenderHeader(colors)}
+        renderContent={() => {
+          const providerProp = { colors: colors, practitioner: practitioner, providerData: data };
+          return ProviderCard.RenderInner(providerProp);
+        }}
       />
     </View>
   );
